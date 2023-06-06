@@ -24,12 +24,31 @@ body {
     background-color: #6CBB5A;
     top: 40%;
     margin: auto auto;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#door-shape {
+    position: relative;
+    width: 99%;
+    height: 99%;
+    background-color: #548E44;
+    top: 0.5%;
+    margin: auto auto auto auto;
+}
+
+#space-between-the-door {
+    position: relative;
+    width: 94%;
+    height: 96%;
+    background-color: #F2F2F2  ;
+    top: 2%;
+    margin: 10px auto auto auto;
 }
   
 #floor {
     width: 70%;
     margin: 0 auto;
-    border-bottom: 20vh solid #C2C2C2;
+    border-bottom: 18vh solid #C2C2C2;
     border-left: 15vw solid transparent;
     border-right: 15vw solid transparent;
 }
@@ -42,6 +61,7 @@ body {
     left: 62%;
     width: 12%;
     text-align: center;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .button {
@@ -49,5 +69,9 @@ body {
     margin: 3%;
     background-color: yellow; /* #BFBFBF cor desligado*/
     padding: 6%;
+    margin: 5px;
+    border-radius: 10%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3); /* Adicionando uma sombra 3D */
+    position: relative;
 }
   
