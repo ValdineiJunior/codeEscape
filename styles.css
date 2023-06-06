@@ -1,9 +1,9 @@
 
-body {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-  
 #game-container {
     position: absolute;
     width: 100%;
@@ -23,55 +23,48 @@ body {
     height: 60%;
     background-color: #6CBB5A;
     top: 40%;
-    margin: auto auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 #door-shape {
     position: relative;
-    width: 99%;
-    height: 99%;
-    background-color: #548E44;
-    top: 0.5%;
-    margin: auto auto auto auto;
-}
-
-#space-between-the-door {
-    position: relative;
-    width: 94%;
-    height: 96%;
-    background-color: #F2F2F2  ;
-    top: 2%;
-    margin: 10px auto auto auto;
+    width: 93%;
+    height: 95%;
+    background-color: #70448e;
+    border: 1px solid #EFEFEF
 }
   
 #floor {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
-    border-bottom: 18vh solid #C2C2C2;
+    border-bottom: 20vh solid #C2C2C2;
     border-left: 15vw solid transparent;
     border-right: 15vw solid transparent;
 }
 
 .buttons {
     position: relative;
-    margin: 2px;
     background-color: #FF4081;
-    bottom: 15%;
-    left: 62%;
-    width: 12%;
-    text-align: center;
+    bottom: 12%;
+    left: 63%;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 .button {
-    display: inline-block;
-    margin: 3%;
     background-color: yellow; /* #BFBFBF cor desligado*/
-    padding: 6%;
-    margin: 5px;
-    border-radius: 10%;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3); /* Adicionando uma sombra 3D */
-    position: relative;
+    width: 10%;
+    height: 10%;
+    padding: 10%;
+    margin: 2px;
+    border-radius: 20%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
 }
   
