@@ -13,16 +13,16 @@
         ["mensagem 10"],
     ];
     const combinations = [
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
-        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        [0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1, 0],
+        [0, 1, 1, 0, 0, 1, 1, 0],
     ];
 
     let nextCombinationIndex = 0;
@@ -66,7 +66,7 @@
         const puzzleDiv = this.closest("#game-container").querySelector("#tv-screen");
         const buttonStates = Array.from(
             this.parentElement.querySelectorAll(".button")
-        ).map(({ classList }) => (classList.contains("on") ? "on" : "off"));
+        ).map(({ classList }) => (classList.contains("on") ? 1 : 0));
 
         checkCombination(buttonStates);
 
