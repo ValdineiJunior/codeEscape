@@ -1,58 +1,121 @@
-// Array para armazenar as situações dos botões
-let situacoes = [];
+(function () {
+    const buttonCount = 8;
+    const puzzle = [
+        ["mensagem 1"],
+        ["mensagem 2"],
+        ["mensagem 3"],
+        ["mensagem 4"],
+        ["mensagem 5"],
+        ["mensagem 6"],
+        ["mensagem 7"],
+        ["mensagem 8"],
+        ["mensagem 9"],
+        ["mensagem 10"],
+    ];
+    const combinations = [
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+        ["off", "on", "on", "off", "off", "on", "on", "off"],
+    ];
 
-// Obtém todos os botões
-const estadoButton = document.getElementsByClassName('button');
-const buttons = [];
+    let nextCombinationIndex = 0;
 
-// Adiciona um ouvinte de eventos de clique a cada botão que não está bloqueado
-for (let i = 0; i < estadoButton.length; i++) {
-  if (!estadoButton[i].classList.contains('locked')) {
-    estadoButton[i].addEventListener('click', function() {
-      this.classList.toggle('on'); // Alterna a classe "on"
-      this.classList.toggle('off'); // Alterna a classe "off"
-      
-      // Obtém o elemento pai dos botões
-      const puzzle = this.parentElement;
-      
-      // Obtém todos os botões do mesmo puzzle
-      buttons.length = 0; // Limpa o array de botões
-      const puzzleButtons = puzzle.getElementsByClassName('button');
-      for (let j = 0; j < puzzleButtons.length; j++) {
-        buttons.push(puzzleButtons[j]);
-      }
-      
-      // Limpa o array de situações
-      situacoes.length = 0;
-      
-      // Obtém as situações de cada botão do mesmo puzzle e adiciona ao array
-      for (let j = 0; j < buttons.length; j++) {
-        const botao = buttons[j];
-        const situacao = botao.classList.contains('on') ? 'on' : 'off';
-        situacoes.push(situacao);
-      }
-      
-      // Chama a função para verificar se a combinação está correta
-      verificarCombinacao(situacoes);
-    });
-  }
-}
+    const buttonsContainers = document.querySelectorAll(".buttons");
 
-// Função para verificar a combinação com um array gabarito
-function verificarCombinacao(situacoes) {
-  // Array gabarito com a combinação correta
-  const gabarito = ['off', 'on', 'on', 'off']; // Exemplo, substitua com a combinação correta
-  
-  // Verifica se a combinação está correta
-  if (situacoes.length === gabarito.length && situacoes.every((situacao, index) => situacao === gabarito[index])) {
-    console.log('Combinação correta!');
-    
-    // Adiciona a classe "completed" aos botões verificados
-    for (let k = 0; k < buttons.length; k++) {
-      buttons[k].classList.add('completed');
+    buttonsContainers.forEach(createButtons);
+
+    removeLockedElements();
+    addEventListenerToNewButtons();
+
+    function createButtons(container) {
+        for (let i = 0; i < buttonCount; i++) {
+            const button = document.createElement("div");
+            button.classList.add("button", "off");
+            container.appendChild(button);
+        }
     }
 
-  } else {
-    console.log('Combinação incorreta!');
-  }
-}
+    function addEventListenerToNewButtons() {
+        const buttons = document.querySelectorAll(".button");
+
+        buttons.forEach((button) => {
+            const parentContainer = button.parentElement;
+            const isLockedOrCompleted =
+                parentContainer.classList.contains("locked") ||
+                parentContainer.classList.contains("completed");
+
+            if (!isLockedOrCompleted) {
+                button.removeEventListener("click", handleButtonClick);
+                button.addEventListener("click", handleButtonClick);
+            } else {
+                button.removeEventListener("click", handleButtonClick);
+            }
+        });
+    }
+
+    function handleButtonClick() {
+        toggleButtonState(this);
+
+        const puzzleDiv = this.closest("#game-container").querySelector("#tv-screen");
+        const buttonStates = Array.from(
+            this.parentElement.querySelectorAll(".button")
+        ).map(({ classList }) => (classList.contains("on") ? "on" : "off"));
+
+        checkCombination(buttonStates);
+
+        if (nextCombinationIndex < puzzle.length) {
+            puzzleDiv.textContent = puzzle[nextCombinationIndex][0];
+        }
+    }
+
+    function toggleButtonState(button) {
+        button.classList.toggle("on");
+        button.classList.toggle("off");
+    }
+
+    function checkCombination(buttonStates) {
+        const currentCombination = combinations[nextCombinationIndex];
+
+        const isCorrectCombination =
+            currentCombination.length === buttonStates.length &&
+            currentCombination.every((state, index) => state === buttonStates[index]);
+
+        if (isCorrectCombination) {
+            console.log("Combinação correta!");
+
+            nextCombinationIndex++;
+
+            removeLockedElements();
+            addCompletedElements();
+            addEventListenerToNewButtons();
+        } else {
+            console.log("Combinação incorreta!");
+        }
+    }
+
+    function removeLockedElements() {
+        const lockedButtons = document.querySelector(".buttons.locked");
+        if (lockedButtons) {
+            lockedButtons.classList.remove("locked");
+        }
+    }
+
+    function addCompletedElements() {
+        const incompleteButtons = document.querySelector(".buttons:not(.completed)");
+        if (incompleteButtons) {
+            incompleteButtons.classList.add("completed");
+        }
+    }
+
+    const puzzleDiv = document.querySelector("#tv-screen");
+    if (puzzle.length > 0) {
+        puzzleDiv.textContent = puzzle[0][0];
+    }
+})();
