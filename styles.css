@@ -143,11 +143,10 @@
     font-size: 1.2vw;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     #interiorWall  {
-        padding: 30% 0 0 0;
         width: 100%;
-        height: 100%;
+        height: 60%;
     }
 
     #floor {
