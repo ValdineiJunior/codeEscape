@@ -2,14 +2,14 @@
     const buttonCount = 8;
     const puzzle = [
         ["Welcome ! I think you understand a little bit about programming, am I right? If you give me the truth, you can proceed to the next puzzle."],
-        ["Well, to discover the second combination among the 80 buttons divided into 10 rows, I'm adding 1 clue in this text. Analyze carefully word by word to decrease the time you will need to solve the correct sequence of 4 buttons."],
-        ["Very well, you solved the last puzzle easily, but unfortunately, you were not the first. At least 50 others came before you to get here. I wish you could have been the prime, but I'm sorry."],
+        ["Well, the second combination among the 80 buttons Divided into 10 rows. I'm Adding 1 clue in this text. Analyze carefully to Decrease the time needed to match the 4 buttons."],
+        ["Very well, you solved the last puzzle easily, but unfortunately, you were not the first. At least 50 others came before you to get here. I wish you could have been the Prime, but I'm sorry."],
         ["Sometimes, the litle thing you're missing is the answer to the problem."],
         ["Thank you for reaching challenge 5! You're doing great, keep up the good work."],
-        ["For this excellent work you are doing, you must be using good development tools, right ?"],
-        ["The two of us have been gaining experience in puzzles from the very beginning, doubling our capacity with each correct answer. How experienced are we now?"],
-        ["To unlock the next buttons below, which are currently in red, and turn them yellow, I will need a bit more intensity in this puzzle. Can you give me that ?"],
-        ["The next sequence can be found on the radio, depending on the base, It is the same from front to back and from top to bottom."],
+        ["For this excellent work you are doing, you must be using good Development Tools, right ?"],
+        ["The Two of us have been gaining experience in puzzles from the very beginning, Doubling our capacity with Each Correct Answer. How experienced are we now?"],
+        ["To unlock the next buttons below, which are currently in Red, and turn them Yellow, I will need a bit more Intensity in this puzzle. Can you give me that ?"],
+        ["The next sequence can be found on the Radio, depending on the Base, It is the same from front to back and from top to bottom."],
         ["Well, to close the puzzle, I would like to congratulate you. Your Odds are small, but just because of your effort to follow the guideLines, you finished it."],
         ["Congratulations on solving those puzzles!"]
     ];
