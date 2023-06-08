@@ -54,9 +54,12 @@
 
             if (!isLockedOrCompleted) {
                 button.removeEventListener("click", handleButtonClick);
+                button.removeEventListener("touchstart", handleButtonClick);
                 button.addEventListener("click", handleButtonClick);
+                button.addEventListener("touchstart", handleButtonClick);
             } else {
                 button.removeEventListener("click", handleButtonClick);
+                button.removeEventListener("touchstart", handleButtonClick);
             }
         });
     }
@@ -64,7 +67,7 @@
     function handleButtonClick() {
         toggleButtonState(this);
 
-        const puzzleDiv = this.closest("#game-container").querySelector("#tv-screen");
+        const puzzleDiv = this.closest("#game-container").querySelector("#tvScreen");
         const buttonStates = Array.from(
             this.parentElement.querySelectorAll(".button")
         ).map(({ classList }) => (classList.contains("on") ? 1 : 0));
@@ -114,7 +117,7 @@
         }
     }
 
-    const puzzleDiv = document.querySelector("#tv-screen");
+    const puzzleDiv = document.querySelector("#tvScreen");
     if (puzzle.length > 0) {
         puzzleDiv.textContent = puzzle[0][0];
     }
