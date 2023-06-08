@@ -1,8 +1,8 @@
 (function () {
     const buttonCount = 8;
     const puzzle = [
-        ["Welcome ! To discover the first combination among the 80 buttons divided into 10 rows, I'm adding 1 clue in this text. Analyze carefully word by word to decrease the time you will need to solve the correct sequence of 4 buttons."],
-        ["Well, I think you understand a little bit about programming, am I right? If you give me the truth, you can proceed to the next puzzle."],
+        ["Welcome ! I think you understand a little bit about programming, am I right? If you give me the truth, you can proceed to the next puzzle."],
+        ["Well, to discover the second combination among the 80 buttons divided into 10 rows, I'm adding 1 clue in this text. Analyze carefully word by word to decrease the time you will need to solve the correct sequence of 4 buttons."],
         ["Very well, you solved the last puzzle easily, but unfortunately, you were not the first. At least 50 others came before you to get here. I wish you could have been the prime, but I'm sorry."],
         ["Sometimes, the litle thing you're missing is the answer to the problem."],
         ["Thank you for reaching challenge 5! You're doing great, keep up the good work."],
@@ -14,8 +14,8 @@
         ["Congratulations on solving those puzzles!"]
     ];
     const combinations = [
-        [0, 0, 0, 0, 0, 1, 0, 1],
         [0, 0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 1, 0, 1],
         [1, 1, 1, 0, 1, 0, 0, 1],
         [0, 1, 1, 1, 0, 1, 0, 0],
         [0, 1, 1, 1, 1, 0, 0, 0],
