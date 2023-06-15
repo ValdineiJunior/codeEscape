@@ -1,10 +1,10 @@
 (function () {
     const buttonCount = 8;
     const puzzle = [
-        ["Welcome ! I think you understand a little bit about programming, am I right? If you give me the truth, you can proceed to the next puzzle."],
-        ["Well, the second combination among the 80 buttons Divided into 10 rows. I'm Adding 1 clue in this text. Analyze carefully to Decrease the time needed to match the 4 buttons."],
-        ["Very well, you solved the last puzzle easily, but unfortunately, you were not the first. At least 50 others came before you to get here. I wish you could have been the Prime, but I'm sorry."],
-        ["Sometimes, the litle thing you're missing is the answer to the problem."],
+        ["Welcome ! Do you understand a little about programming ? If you give me a true answer , then you can proceed to the next puzzle."],
+        ["Alright, for the next you'll need some math to solve. what is the next number in this sequence 1, 4, 13, 40, ?."],
+        ["Very well ! Sometimes, the litle thing you're missing is the answer to the problem, good look !"],
+        ["You've solved the last puzzles with ease, but unfortunately you weren't the first one. At least 50 others came before you. If you were the prime, who knows if you could solve this puzzle."],
         ["Thank you for reaching challenge 5! You're doing great, keep up the good work."],
         ["For this excellent work you are doing, you must be using good Development Tools, right ?"],
         ["The Two of us have been gaining experience in puzzles from the very beginning, Doubling our capacity with Each Correct Answer. How experienced are we now?"],
@@ -15,15 +15,15 @@
     ];
     const combinations = [
         [0, 0, 0, 0, 0, 0, 0, 1],
-        [0, 0, 0, 0, 0, 1, 0, 1],
-        [1, 1, 1, 0, 1, 0, 0, 1],
+        [0, 1, 1, 1, 1, 0, 0, 1],
         [0, 1, 1, 1, 0, 1, 0, 0],
+        [1, 1, 1, 0, 1, 0, 0, 1],
         [0, 1, 1, 1, 1, 0, 0, 0],
         [1, 0, 0, 1, 1, 0, 0, 1],
         [1, 0, 0, 0, 0, 0, 0, 0],
         [1, 1, 1, 1, 1, 1, 1, 1],
         [0, 1, 0, 1, 1, 0, 0, 0],
-        [1, 0, 1, 0, 0, 0, 0, 0],
+        [1, 1, 0, 1, 1, 1, 0, 0],
     ];
 
     let nextCombinationIndex = 0;

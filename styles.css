@@ -54,7 +54,10 @@
     position: relative;
     width: 93%;
     height: 95%;
-    background-color: var(--door-color);
+    background: linear-gradient(
+    var(--door-color),
+    black
+    );
     border: 1px solid var(--border-color);
 }
 
@@ -131,7 +134,8 @@
 
 #tvScreen {
     color: var(--tv-screen-color);
-    font-family: "Roboto", sans-serif;
+    font-size: 100%;
+    font-family: 'Merriweather', serif;
     display: flex;
     align-items: center;
     justify-content: center;
