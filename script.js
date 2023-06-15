@@ -13,6 +13,7 @@
         ["Well, to close the puzzle, I would like to congratulate you. Your Odds are small, but just because of your effort to follow the guideLines, you finished it."],
         ["Congratulations on solving those puzzles!"]
     ];
+    let binaryNumberInBaseTen = 0
     const combinations = [
         [0, 0, 0, 0, 0, 0, 0, 1],
         [0, 1, 1, 1, 1, 0, 0, 1],
@@ -25,6 +26,16 @@
         [0, 1, 0, 1, 1, 0, 0, 0],
         [1, 1, 0, 1, 1, 1, 0, 0],
     ];
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const tvButton = document.getElementById("tvButton");
+        tvButton.addEventListener("touchstart", function () {
+            toggleChannel(tvScreen);
+        });
+        tvButton.addEventListener("click", function () {
+            toggleChannel(tvScreen);
+        });
+    });
 
     let nextCombinationIndex = 0;
 
@@ -66,23 +77,38 @@
 
     function handleButtonClick() {
         toggleButtonState(this);
-
+    
         const puzzleDiv = this.closest("#game-container").querySelector("#tvScreen");
         const buttonStates = Array.from(
             this.parentElement.querySelectorAll(".button")
         ).map(({ classList }) => (classList.contains("on") ? 1 : 0));
-
+    
         checkCombination(buttonStates);
-
-        if (nextCombinationIndex < puzzle.length) {
+    
+        if (tvScreen.classList.contains("channelTwo")) {
+            puzzleDiv.textContent = binaryNumberInBaseTen;
+        } else if (nextCombinationIndex < puzzle.length) {
             puzzleDiv.textContent = puzzle[nextCombinationIndex][0];
         }
-    }
+    }    
 
     function toggleButtonState(button) {
         button.classList.toggle("on");
         button.classList.toggle("off");
     }
+
+    function toggleChannel(tvScreen) {
+        tvScreen.classList.toggle("channelOne");
+        tvScreen.classList.toggle("channelTwo");
+    
+        const puzzleDiv = tvScreen.closest("#game-container").querySelector("#tvScreen");
+        if (tvScreen.classList.contains("channelTwo")) {
+            puzzleDiv.textContent = binaryNumberInBaseTen;
+        } else if (nextCombinationIndex < puzzle.length) {
+            puzzleDiv.textContent = puzzle[nextCombinationIndex][0];
+        }
+    }
+    
 
     function checkCombination(buttonStates) {
         const currentCombination = combinations[nextCombinationIndex];
